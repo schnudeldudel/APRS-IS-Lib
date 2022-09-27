@@ -18,11 +18,16 @@ bool APRS_IS::connect(const String & server, const int port, const String & filt
 	return _connect(server, port, login);
 }
 
+void APRS_IS::disconnect()
+{
+	_client.stop();
+}
+
 bool APRS_IS::_connect(const String & server, const int port, const String & login_line)
 {
 	if(!_client.connect(server.c_str(), port))
 	{
-		logPrintlnE("Something went wrong on connecting! Is the server reachable?");
+		// logPrintlnE("Something went wrong on connecting! Is the server reachable?");
 		return false;
 	}
 	sendMessage(login_line);
@@ -94,7 +99,7 @@ std::shared_ptr<APRSMessage> APRS_IS::getAPRSMessage()
 	}
 	if(line.startsWith("#"))
 	{
-		logPrintlnD(line);
+		// logPrintlnD(line);
 		return 0;
 	}
 	if(line.length() == 0)

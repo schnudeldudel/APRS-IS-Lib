@@ -17,7 +17,7 @@ public:
 	bool connect(const String & server, const int port);
 	bool connect(const String & server, const int port, const String & filter);
 	bool connected();
-
+	void disconnect();
 	bool sendMessage(const String & message);
 	bool sendMessage(const std::shared_ptr<APRSMessage> message);
 

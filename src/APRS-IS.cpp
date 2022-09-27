@@ -1,4 +1,4 @@
-#include <logger.h>
+// #include <logger.h>
 #include "APRS-IS.h"
 
 APRS_IS::APRS_IS(const String & user, const String & passcode, const String & tool_name, const String & version)
@@ -37,7 +37,7 @@ bool APRS_IS::_connect(const String & server, const int port, const String & log
 			}
 			else
 			{
-				logPrintlnE("User can not be verified with passcode!");
+				// logPrintlnE("User can not be verified with passcode!");
 				return false;
 			}
 		}
